@@ -177,29 +177,6 @@ def chat():
         )
         app.logger.debug(f'[{request_id}] Response ID: {response.id}')
         
-        # # Process MCP approval requests
-        # input_list: ResponseInputParam = []
-        # for item in response.output:
-        #     if item.type == "mcp_approval_request":
-        #         app.logger.info(f'[{request_id}] MCP approval request detected: {item.id}')
-        #         input_list.append(
-        #             McpApprovalResponse(
-        #                 type="mcp_approval_response",
-        #                 approve=True,
-        #                 approval_request_id=item.id,
-        #             )
-        #         )
-        
-        # If there were approval requests, send approval response
-        # if input_list:
-        #     app.logger.info(f'[{request_id}] Sending approval response')
-        #     response = openai_client.responses.create(
-        #         input=input_list,
-        #         previous_response_id=response.id,
-        #         extra_body={"agent": {"name": agent.name, "type": "agent_reference"}}
-        #     )
-        #     app.logger.debug(f'[{request_id}] Approval response ID: {response.id}')
-        
         # Get agent's response
         agent_response = response.output_text
         
