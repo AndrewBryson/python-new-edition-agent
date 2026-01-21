@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azure AI Agent Chat</title>
+    <title>CR Coder 🤖</title>
     <style>
         * {
             margin: 0;
@@ -260,8 +260,8 @@
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1>🤖 Azure AI Agent Chat</h1>
-            <p>New Edition Agent - Powered by Azure AI</p>
+            <h1>🤖 CR Coder 🤖</h1>
+            <p>Powered by Azure AI</p>
         </div>
         
         <div class="chat-messages" id="chatMessages">
@@ -422,6 +422,8 @@
             }, 5000);
         }
 
+        const welcomeMessage = "Hello! Paste your Condition Report...";
+
         // Clear conversation
         async function clearConversation() {
             if (!confirm('Are you sure you want to clear the conversation?')) {
@@ -437,7 +439,7 @@
                 if (response.ok) {
                     // Clear messages and show initial greeting
                     chatMessages.innerHTML = '';
-                    addMessage('assistant', "Hello! I'm your AI assistant. How can I help you today?");
+                    addMessage('assistant', welcomeMessage);
                 }
             } catch (error) {
                 showError('Failed to clear conversation: ' + error.message);
@@ -471,12 +473,12 @@
                     });
                 } else {
                     // Show initial greeting if no history
-                    addMessage('assistant', "Hello! I'm your AI assistant. How can I help you today?");
+                    addMessage('assistant', welcomeMessage);
                 }
             } catch (error) {
                 console.error('Failed to load history:', error);
                 // Show initial greeting on error
-                addMessage('assistant', "Hello! I'm your AI assistant. How can I help you today?");
+                addMessage('assistant', welcomeMessage);
             }
         }
 
